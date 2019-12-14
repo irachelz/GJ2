@@ -1,4 +1,4 @@
-Karin:\
+Karin:
 	Player:
 		- movment controller
 		- jump
@@ -20,5 +20,12 @@ Rachel:
 
 who has time:
 
-	GameManager
+
+
+GameManager
+	- movement speed constant
+	- timer
+	- Game Object for the players
+	- GameObject Board
+	- Game object for each screen/mood (staer,End,Play)
 
