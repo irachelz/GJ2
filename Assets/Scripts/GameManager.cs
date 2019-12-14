@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static float MOVE_CONSTANT = 1f;
-
+    public int numPlayersLife;
+    public float PLAYER_SPEED_MOVEMENT;
+    public float PLAYER_JUMP_POWER;
 
     // Start is called before the first frame update
     void Start()
