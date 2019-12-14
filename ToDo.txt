@@ -1,0 +1,24 @@
+Karin:\
+	Player:
+		- movment controller
+		- jump
+		- life update (on hit)
+
+
+
+
+
+Rachel:
+
+	Tiles
+		- rejeneration (colliders and connections)
+		- boarders
+		
+
+
+
+
+who has time:
+
+	GameManager
+
