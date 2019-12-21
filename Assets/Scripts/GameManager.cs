@@ -7,12 +7,14 @@ public class GameManager : MonoBehaviour
     public int numPlayersLife;
     public float PLAYER_SPEED_MOVEMENT;
     public float PLAYER_JUMP_POWER;
+    public static float PROGRESS_SPEED;
 
     // Start is called before the first frame update
     void Start()
     {
 
         // all of the objects but the opening screen are not active
+        PROGRESS_SPEED = 10;
         
     }
 

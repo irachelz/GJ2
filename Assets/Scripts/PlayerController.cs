@@ -70,5 +70,9 @@ public class PlayerController : MonoBehaviour
 //            velocity_Y = Mathf.Max(velocity_Y, 0);
 //            mPlayer.rotation = other.transform.rotation;
         }
+        if (other.CompareTag("Flower"))
+        {
+            // add flower point! :)
+        }
     }
 }
