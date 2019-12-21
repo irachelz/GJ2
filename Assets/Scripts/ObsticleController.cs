@@ -9,8 +9,8 @@ public class ObsticleController : MonoBehaviour
     private Vector3 _initPOS;
     private Transform thisObsticle;
     private float _speed;
-    public GameObject gm;
-    private GameManager gmanager;
+    //public GameObject gm;
+    //private GameManager gmanager;
 
     // todo: add a position bank and do random at the beginning?
 
@@ -19,13 +19,13 @@ public class ObsticleController : MonoBehaviour
     void Start()
     {
         //gm = GameObject.Find("GameManager");
-        gmanager = gm.GetComponent<GameManager>();
+        
         // the obsticle
         thisObsticle = GetComponent<Transform>();
         //initial position
         _initPOS = thisObsticle.localPosition;
         //_speed = GameManager.PROGRESS_SPEED;
-        _speed = gmanager.PLAYER_SPEED_MOVEMENT;
+        _speed = GameManager.GetSpeed();
     }
 
     // Update is called once per frame

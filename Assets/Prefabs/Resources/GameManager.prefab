@@ -44,7 +44,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numPlayersLife: 5
+  score: 0
+  highscore: 0
   PLAYER_SPEED_MOVEMENT: 15
   PLAYER_JUMP_POWER: 3
   FloorBoard: {fileID: 5410999260730590972, guid: 63440dcd94ca65041a5497d14c824331,
+    type: 3}
+  startScreen: {fileID: 0}
+  endScreen: {fileID: 0}
+  gameScreen: {fileID: 0}
+  mRoundTimeText: {fileID: 8072020266362869198, guid: 96821afb7b26521479517a179be6ee5c,
+    type: 3}
+  textScore: {fileID: 44242939619830032, guid: 0b87b6ebb89ebfa48974919701c134c5, type: 3}
+  textHighScore: {fileID: 2003261980538744081, guid: 088a943819ec8e645b9b6bb38dfcd30f,
     type: 3}

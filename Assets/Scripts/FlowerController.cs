@@ -7,8 +7,8 @@ public class FlowerController : MonoBehaviour
     private Vector3 _initPOS;
     private Transform thisFlower;
     private float _speed;
-    public GameObject gm;
-    private GameManager gmanager;
+   // public GameObject gm;
+   // private GameManager gmanager;
 
     // todo: add a position bank and do random at the beginning?
 
@@ -17,13 +17,13 @@ public class FlowerController : MonoBehaviour
     void Start()
     {
         //gm = GameObject.Find("GameManager");
-        gmanager = gm.GetComponent<GameManager>();
+        //gmanager = gm.GetComponent<GameManager>();
         // the obsticle
         thisFlower = GetComponent<Transform>();
         //initial position
         //_initPOS = thisFlower.localPosition;
         //_speed = GameManager.PROGRESS_SPEED;
-        _speed = gmanager.PLAYER_SPEED_MOVEMENT;
+        _speed = GameManager.PLAYER_SPEED_MOVEMENT;
     }
 
     // Update is called once per frame
