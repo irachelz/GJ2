@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = true;
     public GameObject gameManager;
     private GameManager GM;
-//    private float mSpeedMovement;
     private float mJumpPower;
     
     public Transform mPlayer;
@@ -22,7 +21,6 @@ public class PlayerController : MonoBehaviour
     {
         
         GM = gameManager.GetComponent<GameManager>();
-//        mSpeedMovement = GM.PLAYER_SPEED_MOVEMENT;
         mJumpPower = GM.PLAYER_JUMP_POWER;
 //        mSpeedMovement = 10;// GM.PLAYER_SPEED_MOVEMENT;
 //        mJumpPower = 2; // GM.PLAYER_JUMP_POWER;
@@ -38,44 +36,39 @@ public class PlayerController : MonoBehaviour
         {
             mPlayer.transform.Translate(Vector3.right * (movmentDis));
             xPlace += 1;
-//            mPlayer.transform.Translate(Vector2.right * (mPlayerSpeed * Time.deltaTime));
-//            spriteRenderer.flipX = false;
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) && xPlace > MIN_LEFT_PLACE) // Move the player right
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) && xPlace > MIN_LEFT_PLACE) // Move the player left
         {
             mPlayer.transform.Translate(Vector3.left * (movmentDis));
             xPlace -= 1;
         }
-        
-//        if (Input.GetKey(KeyCode.UpArrow))
-//        {
-//            mPlayer.transform.Translate(Vector3.forward * (mSpeedMovement * Time.deltaTime));
-//        }
-        
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
+
+        if (Input.GetKeyDown(KeyCode.UpArrow) && mPlayer.position.y < 1) // Make the player jump
         {
             isGrounded = false;
             mPlayer.transform.Translate(Vector3.up * (mJumpPower));
-            Debug.Log("I jumped!");
+//            Debug.Log("I jumped!");
         }
         
     }
     
-    public void OnTriggerEnter2D(Collider2D other) 
+    public void OnCollisionEnter(Collision other) 
     {
-        if (other.CompareTag("Obstacle")) // Bump into obstacle
+        Debug.Log("I am triggered!");
+        string tag = other.gameObject.tag;
+        if (tag.Equals("Obsticle")) // Bump into obstacle
         {
             // loosing one life (in game manager)
             GM.numPlayersLife -= 1;
+            Debug.Log("I hit an obsticle!");
         } 
-        else if (other.CompareTag("Floor")) // Player is grounded
+        else if (tag.Equals("Floor")) // Player is grounded
         {
-            isGrounded = true;
-//            velocity_Y = Mathf.Max(velocity_Y, 0);
-//            mPlayer.rotation = other.transform.rotation;
+//            Debug.Log("I am on the floor!");
         }
-        if (other.CompareTag("Flower"))
+        if (tag.Equals("Flower"))
         {
+            Debug.Log("I got a flower!");
             // add flower point! :)
         }
     }
