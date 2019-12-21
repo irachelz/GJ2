@@ -27,9 +27,9 @@ public class ObsticleManager : MonoBehaviour
     {
         timer = 0;
         MakeList();
-        _pos1 = new Vector3(-10,0.5f,67);
-        _pos2 = new Vector3(0, 0.5f, 67);
-        _pos3 = new Vector3(10, 0.5f, 67);
+        _pos1 = new Vector3(-10,1.5f,67);
+        _pos2 = new Vector3(0, 1.5f, 67);
+        _pos3 = new Vector3(10, 1.5f, 67);
         _pos4 = new Vector3(-10, 6, 67);
         _pos5 = new Vector3(0, 6, 67);
         _pos6 = new Vector3(10, 6, 67);
