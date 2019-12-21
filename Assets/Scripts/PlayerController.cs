@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
             xPlace -= 1;
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && mPlayer.position.y < 1) // Make the player jump
+        if (Input.GetKeyDown(KeyCode.UpArrow) && mPlayer.position.y < 2.2) // Make the player jump
         {
             isGrounded = false;
             //mPlayer.transform.Translate(Vector3.up * (mJumpPower));
