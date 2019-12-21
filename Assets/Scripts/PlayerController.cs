@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     private const int MIN_LEFT_PLACE = -1;
     private int xPlace = 0; //The middle of the path
     private float movmentDis;
-    private bool isGrounded = true;
+//    private bool isGrounded = true;
     public GameObject gameManager;
     private GameManager GM;
     private float mJumpPower;
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
         mJumpPower = GM.PLAYER_JUMP_POWER;
 //        mSpeedMovement = 10;// GM.PLAYER_SPEED_MOVEMENT;
 //        mJumpPower = 2; // GM.PLAYER_JUMP_POWER;
-        float pathWidth = 15f; // MG.PATH_WIDTH;
+        float pathWidth = GM.FloorBoard.transform.localScale.z * 10f;; // MG.PATH_WIDTH;
         movmentDis = pathWidth / 3; // Calculate the path width
     }
 
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && mPlayer.position.y < 2.2) // Make the player jump
         {
-            isGrounded = false;
+//            isGrounded = false;
             //mPlayer.transform.Translate(Vector3.up * (mJumpPower));
             mPlayer.GetComponent<Rigidbody>().AddForce(Vector3.up*mJumpPower);
             Debug.Log("I jumped!");
