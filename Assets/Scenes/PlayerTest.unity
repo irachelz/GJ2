@@ -605,6 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96626c9d44a8bb468a6b1a45b53dcf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 912359871}
   mPlayer: {fileID: 1119551387}
 --- !u!4 &1119551387
 Transform:

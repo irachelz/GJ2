@@ -28,7 +28,7 @@ public class ObsticleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        thisObsticle.transform.Translate(Vector3.left* _speed * Time.deltaTime);
+        thisObsticle.transform.Translate(Vector3.back * _speed * Time.deltaTime);
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obsticle
   - Flower
+  - Floor
   layers:
   - Default
   - TransparentFX

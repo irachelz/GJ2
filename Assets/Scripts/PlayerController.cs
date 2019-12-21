@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private const int MAX_RIGHT_PLACE = 4;
-    private const int MIN_LEFT_PLACE = 0;
-    private int xPlace = 2; //The middle of the path
+    private const int MAX_RIGHT_PLACE = 1;
+    private const int MIN_LEFT_PLACE = -1;
+    private int xPlace = 0; //The middle of the path
     private float movmentDis;
     private bool isGrounded = true;
-    private GameObject gameManager;
+    public GameObject gameManager;
     private GameManager GM;
-    private float mSpeedMovement;
+//    private float mSpeedMovement;
     private float mJumpPower;
     
     public Transform mPlayer;
@@ -20,11 +20,14 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float pathWidth = 10f; // Calculate the path width
-        movmentDis = pathWidth / 5;
-//        GM = gameManager.GetComponent<GameManager>();
-        mSpeedMovement = 10;// GM.PLAYER_SPEED_MOVEMENT;
-        mJumpPower = 2; // GM.PLAYER_JUMP_POWER;
+        
+        GM = gameManager.GetComponent<GameManager>();
+//        mSpeedMovement = GM.PLAYER_SPEED_MOVEMENT;
+        mJumpPower = GM.PLAYER_JUMP_POWER;
+//        mSpeedMovement = 10;// GM.PLAYER_SPEED_MOVEMENT;
+//        mJumpPower = 2; // GM.PLAYER_JUMP_POWER;
+        float pathWidth = 15f; // MG.PATH_WIDTH;
+        movmentDis = pathWidth / 3; // Calculate the path width
     }
 
     // Update is called once per frame
@@ -44,15 +47,16 @@ public class PlayerController : MonoBehaviour
             xPlace -= 1;
         }
         
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            mPlayer.transform.Translate(Vector3.forward * (mSpeedMovement * Time.deltaTime));
-        }
+//        if (Input.GetKey(KeyCode.UpArrow))
+//        {
+//            mPlayer.transform.Translate(Vector3.forward * (mSpeedMovement * Time.deltaTime));
+//        }
         
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
         {
             isGrounded = false;
             mPlayer.transform.Translate(Vector3.up * (mJumpPower));
+            Debug.Log("I jumped!");
         }
         
     }
@@ -64,7 +68,7 @@ public class PlayerController : MonoBehaviour
             // loosing one life (in game manager)
             GM.numPlayersLife -= 1;
         } 
-        else if (other.CompareTag("Ground")) // Player is grounded
+        else if (other.CompareTag("Floor")) // Player is grounded
         {
             isGrounded = true;
 //            velocity_Y = Mathf.Max(velocity_Y, 0);
