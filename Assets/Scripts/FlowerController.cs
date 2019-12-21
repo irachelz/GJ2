@@ -5,7 +5,7 @@ using UnityEngine;
 public class FlowerController : MonoBehaviour
 {
     private Vector3 _initPOS;
-    private Transform thisObsticle;
+    private Transform thisFlower;
     private float _speed;
     public GameObject gm;
     private GameManager gmanager;
@@ -19,9 +19,9 @@ public class FlowerController : MonoBehaviour
         //gm = GameObject.Find("GameManager");
         gmanager = gm.GetComponent<GameManager>();
         // the obsticle
-        thisObsticle = GetComponent<Transform>();
+        thisFlower = GetComponent<Transform>();
         //initial position
-        _initPOS = thisObsticle.localPosition;
+        //_initPOS = thisFlower.localPosition;
         //_speed = GameManager.PROGRESS_SPEED;
         _speed = gmanager.PLAYER_SPEED_MOVEMENT;
     }
@@ -29,7 +29,7 @@ public class FlowerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        thisObsticle.transform.Translate(Vector3.back * _speed * Time.deltaTime);
+        thisFlower.Translate(Vector3.back * _speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
