@@ -27,8 +27,14 @@ public class ObsticleManager : MonoBehaviour
     {
         timer = 0;
         MakeList();
-        _pos1 = new Vector3();
-        
+        _pos1 = new Vector3(-10,0,67);
+        _pos2 = new Vector3(0, 0, 67);
+        _pos3 = new Vector3(10, 0, 67);
+        _pos4 = new Vector3(-10, 6, 67);
+        _pos5 = new Vector3(0, 6, 67);
+        _pos6 = new Vector3(10, 6, 67);
+
+
 
     }
 
@@ -51,13 +57,36 @@ public class ObsticleManager : MonoBehaviour
         }
         else
         {
-            timer -= Time.deltaTime;
+            timeFlower -= Time.deltaTime;
         }
 
     }
     private void GenerateFlower()
     {
-        int pos = Random.Range(0, 3);
+        int pos = Random.Range(0, 6);
+        GameObject flower = Instantiate(Resources.Load("Flower")) as GameObject;
+        switch (pos)
+        {
+            case 0:
+                flower.transform.localPosition = _pos1;
+                break;
+            case 1:
+                flower.transform.localPosition = _pos2;
+                break;
+            case 2:
+                flower.transform.localPosition = _pos3;
+                break;
+            case 3:
+                flower.transform.localPosition = _pos4;
+                break;
+            case 4:
+                flower.transform.localPosition = _pos5;
+                break;
+            case 5:
+                flower.transform.localPosition = _pos6;
+                break;
+            
+        }
 
     }
 
