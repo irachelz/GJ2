@@ -37,10 +37,9 @@ public class GameManager : MonoBehaviour
         startScreen = GameObject.Find("Start");
         endScreen = GameObject.Find("End");
         score = 0;
-        if (score >= highscore)
-        {
-            highscore = score;
-        }
+        
+        highscore = PlayerPrefs.GetInt("highScore", 0);
+
         timer = GAMETIME;
         startScreen.SetActive(true);
         startsc = true;
@@ -93,8 +92,9 @@ public class GameManager : MonoBehaviour
                 endScreen.SetActive(true);
                 if (score > highscore)
                 {
-                    highscore = score;
-                    textHighScore.SetText(((int)highscore).ToString());
+                    PlayerPrefs.SetInt("highScore", score);
+                    PlayerPrefs.Save();
+                    //textHighScore.SetText(((int)highscore).ToString());
                 }
                    
                 endsc = true;

@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         if (tag.Equals("Obsticle")) // Bump into obstacle
         {
             // loosing one life (in game manager)
-            GM.numPlayersLife -= 1;
+            GM.DecLife();
             Debug.Log("I hit an obsticle!");
             Debug.Log(GM.numPlayersLife);
         }
@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("I got a flower!");
             // add flower point! :)
-//            GM.score += 1;
+            GM.UpScore();
         }
 
     }
