@@ -36,8 +36,12 @@ public class ObsticleController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("destroing");
-        Destroy(gameObject);
+        if (!other.gameObject.tag.Equals("Floor"))
+        {
+            Debug.Log("destroing");
+            Destroy(gameObject);
+        }
+        
         
     }
 }

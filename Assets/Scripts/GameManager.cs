@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public float PLAYER_SPEED_MOVEMENT;
     public float PLAYER_JUMP_POWER;
     public static float PROGRESS_SPEED;
+    public const int boardSize = 30;
 
     // Start is called before the first frame update
     void Start()

@@ -5,7 +5,9 @@ using UnityEngine;
 public class ObsticleManager : MonoBehaviour
 {
     private float timer;
-    public const float TIME_FOR_GEN = 2;
+    private float timeFlower;
+    public const float TIME_FOR_GEN = 4;
+    public const float TIME_FOR_GEN_FLOWER = 6;
     private int _obsPlayer1;
     private Dictionary<int, int[]> obstForSecond;
     private Vector3 _middlepPosP1;
@@ -25,7 +27,7 @@ public class ObsticleManager : MonoBehaviour
     {
         timer = 0;
         MakeList();
-        
+        _pos1 = new Vector3();
         
 
     }
@@ -42,13 +44,27 @@ public class ObsticleManager : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
-        
+        if (timeFlower <= 0)
+        {
+            GenerateFlower();
+            timeFlower = TIME_FOR_GEN_FLOWER;
+        }
+        else
+        {
+            timer -= Time.deltaTime;
+        }
+
+    }
+    private void GenerateFlower()
+    {
+        int pos = Random.Range(0, 3);
+
     }
 
     private void GenerateObsticle()
     {
-        _obsPlayer1 = Random.Range(-1, 6);
-        _obsPlayer1 = 0;
+        _obsPlayer1 = Random.Range(-1, 8);
+       //_obsPlayer1 = 0;
        // int[] forSecond =  obstForSecond[_obsPlayer1];
         //int P2 = Random.Range(0, forSecond.Length);
         //int obsP2 = forSecond[P2];

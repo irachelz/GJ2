@@ -5,22 +5,37 @@ using UnityEngine;
 public class FlowerController : MonoBehaviour
 {
     private Vector3 _initPOS;
-    private Transform thisFlower;
+    private Transform thisObsticle;
     private float _speed;
+    public GameObject gm;
+    private GameManager gmanager;
+
+    // todo: add a position bank and do random at the beginning?
+
+
     // Start is called before the first frame update
     void Start()
     {
+        //gm = GameObject.Find("GameManager");
+        gmanager = gm.GetComponent<GameManager>();
         // the obsticle
-        thisFlower = GetComponent<Transform>();
+        thisObsticle = GetComponent<Transform>();
         //initial position
-        _initPOS = thisFlower.localPosition;
+        _initPOS = thisObsticle.localPosition;
         //_speed = GameManager.PROGRESS_SPEED;
-        _speed = 10;
+        _speed = gmanager.PLAYER_SPEED_MOVEMENT;
     }
 
     // Update is called once per frame
     void Update()
     {
-        thisFlower.transform.Translate(Vector3.left * _speed * Time.deltaTime);
+        thisObsticle.transform.Translate(Vector3.back * _speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("destroing");
+        Destroy(gameObject);
+
     }
 }

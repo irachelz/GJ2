@@ -46,13 +46,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) && mPlayer.position.y < 1) // Make the player jump
         {
             isGrounded = false;
-            mPlayer.transform.Translate(Vector3.up * (mJumpPower));
-//            Debug.Log("I jumped!");
+            //mPlayer.transform.Translate(Vector3.up * (mJumpPower));
+            mPlayer.GetComponent<Rigidbody>().AddForce(Vector3.up*mJumpPower);
+            Debug.Log("I jumped!");
         }
         
     }
-    
-    public void OnCollisionEnter(Collision other) 
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("I am triggered!");
         string tag = other.gameObject.tag;
@@ -61,15 +61,24 @@ public class PlayerController : MonoBehaviour
             // loosing one life (in game manager)
             GM.numPlayersLife -= 1;
             Debug.Log("I hit an obsticle!");
-        } 
-        else if (tag.Equals("Floor")) // Player is grounded
-        {
-//            Debug.Log("I am on the floor!");
+            Debug.Log(GM.numPlayersLife);
         }
-        if (tag.Equals("Flower"))
+        else if (tag.Equals("Flower"))
         {
             Debug.Log("I got a flower!");
             // add flower point! :)
         }
+
+    }
+
+    public void OnCollisionEnter(Collision other) 
+    {
+        Debug.Log("I am coll!");
+        string tag = other.gameObject.tag;
+        if (tag.Equals("Floor")) // Player is grounded
+        {
+//            Debug.Log("I am on the floor!");
+        }
+        
     }
 }
