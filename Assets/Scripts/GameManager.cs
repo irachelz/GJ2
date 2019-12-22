@@ -127,7 +127,13 @@ public class GameManager : MonoBehaviour
     public void DecLife()
     {
         numPlayersLife -= 1;
+        if (numPlayersLife <= 3)
+        {
+            textlife.color = Color.red;
+            textlife.fontSize += 5;
+        }
         textlife.SetText(((int)numPlayersLife).ToString());
+        
     }
     void CreateTexts()
     {
@@ -137,10 +143,10 @@ public class GameManager : MonoBehaviour
     private void UpdateRoundTime()
     {
         timer -= Time.deltaTime;
-        if (timer <= 15)
+        if (timer <= 10)
         {
             mRoundTimeText.color = Color.red;
-            mRoundTimeText.fontSize = 120;
+            mRoundTimeText.fontSize = 50;
         }
         mRoundTimeText.SetText(((int)timer).ToString());
     }
