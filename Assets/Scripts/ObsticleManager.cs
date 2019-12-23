@@ -255,7 +255,7 @@ public class ObsticleManager : MonoBehaviour
     {
         var arr = new int[7] { 0, 1, 2, 3, 4, 6, 7 };
         obstForSecond.Add(0, arr);
-        var arr1 = new int[8] { 0, 1, 2, 3, 4,5, 6, 7 };
+        var arr1 = new int[7] { 0, 1, 2, 4,5, 6, 7 };
         obstForSecond.Add(1, arr1);
         var arr2 = new int[7] { 0, 1, 2, 3, 5, 6, 7 };
         obstForSecond.Add(2, arr2);
